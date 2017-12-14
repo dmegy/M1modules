@@ -1,0 +1,92 @@
+\documentclass[11pt,a4paper]{book}
+
+\usepackage{geometry}% gestion des marges etc
+\usepackage[utf8]{inputenc} % caractères utf8 dans le fichier source
+\usepackage[T1]{fontenc} % encodage en sortie
+\usepackage[francais]{babel} % paramètres de langue : guillemets etc
+\usepackage{amssymb,mathtools,amsthm}
+\usepackage{stmaryrd,mathrsfs} % polices et symboles supplémentaires
+\usepackage{fancybox,graphicx,xypic}
+\usepackage{multicol,comment,variations,enumitem,datetime}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=[rgb]{0,0.2,0.6},          % color of internal links
+    citecolor=[rgb]{0,0.2,0.6},        % color of links to bibliography
+    filecolor=[rgb]{0,0.2,0.6},      % color of file links
+    urlcolor=[rgb]{0.7,0.2,0.2}           % color of external links
+}
+
+\usepackage{pgf,pgfmath,tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary[patterns]
+\tikzset{every picture/.style={execute at begin picture={
+   \shorthandoff{:;!?};}
+}}
+
+
+% - - - - - - -
+% Spécifique à ce document :
+
+\usepackage{fourier} % police de caractères : Adobe Utopia + Fourier math
+\everymath{\displaystyle} % plus lisible mais casse l'homogénéité de la mise en page
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\U}{\mathbb{U}}
+\DeclareMathOperator{\pgcd}{pgcd}
+\DeclareMathOperator{\ppcm}{ppcm}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\Card}{Card}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\renewcommand{\Im}{\operatorname{Im}}
+\DeclareMathOperator{\Coim}{Coim}
+
+% Environnements : 
+
+\theoremstyle{definition}
+\newtheorem{theoreme}{Th\'eor\`eme}[section]
+\newtheorem{theoremedef}[theoreme]{Théorème-définition}
+\newtheorem{proposition}[theoreme]{Proposition}
+\newtheorem{corollaire}[theoreme]{Corollaire}
+\newtheorem{lemme}[theoreme]{Lemme}
+\newenvironment{preuve}{{\bf Preuve. }}{$\Box$}
+\newenvironment{red}{\begin{quote}\emph{Exemple de rédaction:}\\}{\end{quote}}
+\newenvironment{exo}{\begin{exercice}}{\end{exercice}}
+\newtheorem{propdef}[theoreme]{Proposition--Définition}
+\newtheorem{definition}[theoreme]{D\'efinition}
+\newtheorem{remarque}[theoreme]{Remarque}
+\newtheorem{exercice}[theoreme]{Exercice}
+\newtheorem{exemple}[theoreme]{Exemple}
+\newtheorem{notation}[theoreme]{Notation}
+\newtheorem{exemples}[theoreme]{Exemples}
+
+
+\begin{document}
+
+\title{Introduction à la théorie des modules}
+\date{Version du \today{} à \currenttime}
+\maketitle
+
+
+\tableofcontents
+
+\input{1generalites}
+
+\input{2complements}
+
+\input{3modulesParticuliers}
+
+\input{4modulesTypeFiniSurPrincipal}
+
+
+\end{document}

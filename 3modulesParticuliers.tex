@@ -1,0 +1,106 @@
+
+
+\chapter{Modules particuliers}
+
+Dans ce chapitre $A$ est commutatif.
+
+% - - - - - - - - - - - - - - - - - - - - -
+
+
+$A/I$ est de torsion. $\Q/\Z$ est de torsion.
+
+
+\section{Familles libre et génératrices}
+
+Définitions équivalentes. 
+Bases.
+Contre-exemples.
+
+
+
+
+\section{Modules de type fini}
+
+\begin{propdef} Soit $M$ un module. Les conditions suivantes sont équivalentes.
+\begin{enumerate}
+\item Il existe une famille génératrice finie $m_1, ... m_r$ de $M$.
+\item Il existe un morphisme surjectif $A^r \to M$.
+\end{enumerate}
+
+Lorsqu'elles sont vérifiées, on dit que le module est \emph{de type fini}.
+\end{propdef}
+
+Exemples : $A^n$ est de type fini. Le $\Z$-module $\Q$ n'est pas de type fini. Si $k$ est un corps, le $k$-module (c'est-à-dire $k$-ev) $k[X]$ n'est pas de type fini comme $k$-module. Attention, on dit cependant que c'est une \emph{$k$-algèbre de type fini}! (En tant que $k$-algèbre, $k[X]$ est en effet engendrée par un nombre fini d'éléments, en fait juste un seul : $X$. Mais pas en tant que $k$-ev.)
+
+\begin{proposition}  Soit $M$ de type fini. Alors:
+\begin{enumerate}
+\item Tout quotient de $M$ est de type fini.
+\item Un sous-module de $M$ n'est pas forcément de type fini.
+\end{enumerate}
+\end{proposition}
+
+
+\begin{proposition}
+Soit $0\to M' \to M\to M'' \to 0$ une suite exacte courte de modules. Si $M'$ et $M''$ sont de t.f., alors $M$ aussi.
+\end{proposition}
+
+Cette proposition est une conséquence de la proposition plus générale qui dit qu'une famille génératrice de $M'$ et une famille génératrice de $M''$ fournissent une famille génératrice de $M$. % vu dans Douady 3.3.9
+On peut aussi appliquer le lemme des cinq dans sa version générale.
+
+
+
+\begin{theoreme}[Cayley-Hamilton]
+\end{theoreme}
+
+\begin{corollaire} Soit $M$ un module de type fini, et $f \in \End_A(M)$. Si $f$ est surjectif, il est bijectif.
+\end{corollaire}
+
+
+\section{Modules libres}
+
+\subsection{Généralités sur les bases, contre-exemples}
+\subsection{Théorie de la dimension pour les espaces vectoriels (admis)}
+Les résultats suivants sont admis. Voir Lang, Algebra, III.5 (chapitre sur les espaces vectoriels). 
+
+\begin{theoreme}
+Soit $V$ un $k$-ev. Soit $\mathcal L$ une famille libre et $\mathcal G\supset \mathcal L$ une famille génératrice. Alors il existe une base $\mathcal B$ avec $\mathcal L \subset\mathcal B \subset \mathcal G$.
+\end{theoreme}
+
+En particulier, de toute famille génératrice on peut extraire une base, et toute famille libre peut être complétée en une base.
+
+\begin{theoremedef}
+Soit $V$ un $k$-ev. Toutes les bases de $V$ ont le même cardinal, que l'on appelle la \emph{dimension} de $V$ (en tant que $k$-espace vectoriel).
+\end{theoremedef}
+
+
+\subsection{Théorie du rang pour les modules libres sur un anneau commutatif}
+\subsection{Applications}
+
+à la fin, les surjections vers un module libre sont scindées
+
+\section{Modules de présentation finie}
+\section{Modules noethériens (et artiniens)}
+
+\begin{proposition} 
+\end{proposition}
+
+\begin{propdef} Soit $M$ un module. On a équivalence entre les trois assertions suivantes.
+Un module est noethérien s'il vérifie les conditions équivalentes précédentes.
+\end{propdef}
+
+
+\begin{propdef} Soit $M$ un module. On a équivalence entre les deux assertions suivantes.
+Un module est artinien s'il vérifie les conditions équivalentes précédentes.
+\end{propdef}
+
+\begin{proposition} \og 2-out-of-3\fg{} pour noethériens et artiniens.
+\end{proposition}
+
+
+\begin{proposition} Soit $M$ un $A$-module, et $f \in \End_A(M)$.
+\begin{itemize}
+\item Si $M$ est noethérien et $f$ est surjectif, $f$ est bijectif.
+\item Si $M$ est artinien et $f$ est injectif, $f$ est bijectif.
+\end{itemize}
+\end{proposition}
+

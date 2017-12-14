@@ -1,0 +1,399 @@
+
+\chapter{Généralités sur les modules}
+
+\section{La catégorie des $A$-modules}
+$A$ est anneau unitaire, non nécessairement commutatif.
+\subsection{Objets}
+\begin{definition}
+Un $A$-module à gauche est la donnée d'un groupe abélien $(M,+)$ et d'une loi externe $A\times M \to M$, notée $\times$ satisfaisant les conditions suivantes:
+\begin{itemize}
+\item distributivité
+\item distributivité
+\item associativité
+\item action de $1_A$ triviale
+\end{itemize}
+\end{definition}
+
+En général, on note la loi externe avec un point au lieu de $\times$, voire on omet de la noter.
+
+Les éléments de $A$ sont appelés les \emph{scalaires}.
+
+
+\begin{remarque}
+Il revient au même de donner une structure de $A$-module sur un  groupe abélien $M$, ou de donner un morphisme d'anneaux entre $A$ et l'anneau des endomorphismes de groupe de $M$.
+\end{remarque}
+
+\begin{exo} Il existe une définition de $A$-module à droite qui est semblable. \'Ecrire la définition. Que devient la remarque précédente pour les modules à droite ?
+\end{exo}
+
+Dans la suite, on parlera surtout de modules à gauche, et on écrit \emph{module} au lieu de \emph{module à gauche}. Si des modules à droite apparaissent, ce sera signalé. Les modules à droite ont aussi quelques avantages et apparaissent de façon naturelle dans certains contextes.
+
+\begin{remarque} Si l'anneau $A$ est commutatif, on ne fait pas la différence entre modules à gauche et à droite et on écrit juste module.
+\end{remarque}
+
+\begin{exo}[Règles de calcul]
+Soit $M$ un $A$-module. Montrer:
+\begin{itemize}
+\item $\forall m\in M, 0_A.m = 0_M$;
+\item $\forall m\in M, (-1_A)m = -m$;
+\item $\forall a\in A, a0_M = 0_M$.
+\end{itemize}
+\end{exo}
+
+\begin{exemple} Voici quelques exemples de modules.
+\begin{itemize}
+\item Le groupe abélien $0$ à un élément a une unique structure de $A$-module. C'est le module nul.
+\item L'anneau $A$ est un $A$-module, avec comme loi externe la multiplication de l'anneau.
+\item Tout groupe abélien a une unique structure de $\Z$-module : si $n \in \Z$ et $x \in M$, on est obligé de définir $n\cdot x = x+x+...+x$.
+\item Si $A$ est un corps, les $A$-modules sont exactement les $A$-espaces vectoriels.
+\item $A[X]$ est un $A$-module.
+\item Si $M$ est un $A$-module et $f : B \to A$ est un morphisme d'anneaux, alors l'application 
+\[\times_B : B \times M \to M, (b,m) \mapsto f(b)m
+\]
+munit $M$ d'une structure de $B$-module.
+ (Utile pour $B = Z(A)$ pour avoir un module sur un anneau commutatif par exemple.)
+\end{itemize}
+\end{exemple}
+
+\begin{exemple}[fondamental]
+Soit $V$ un $K$-ev, et $f$ un endomorphisme (d'espace vectoriel) de $E$. Alors on définit:
+\[\mu : K[X] \times V \to V,\quad (P,v)\mapsto P(f)(v),
+\]
+où $P(f)(v)$ est le polynôme d'endomorphisme $P(f)$ appliqué au vecteur $v$. Exercice : vérifier que ceci munit le $K$-ev $V$ d'une structure de $K[X]$-module. Cet exemple est fondamental.
+\end{exemple}
+
+Dans les exemples qui suivent, l'anneau $A$ n'est pas commutatif. 
+
+
+\begin{exemple}
+Soit $G$ un groupe, $k$ un corps et $A = k[G]$ l'algèbre du groupe sur $k$ (voir les rappels sur les anneaux). Alors un $A$-module à gauche est la même chose qu'une $k$-représentation de $G$, c'est-à-dire un $k$-espace vectoriel $V$ et une action à gauche de $G$ sur $V$ par automorphismes linéaires.
+\end{exemple}
+
+\begin{exemple}
+Soit $k$ un corps, $n \in \N$ et $A = M_n(k)$. Alors $k^n$ est un $A$-module à gauche. Plus généralement, si $V$ est un $k$-ev, alors $V$ est un $\mathrm{End}_k(V)$-module à gauche.
+\end{exemple}
+
+
+
+\begin{definition}
+Soit $I$ un ensemble (fini ou infini), $M$ un $A$-module, $(x_i)_{i\in I}$ une famille  d'éléments de $M$. Une combinaison linéaire des $x_i$ est un élément de $M$ de la forme $\sum_{i\in I}a_ix_i$, où $(a_i)_{i\in I}$ est une famille presque nulle (on dit aussi : à support fini) d'éléments de $A$.\end{definition}
+
+\subsection{Morphismes}
+
+\begin{definition}[Morphisme] Soient $M$ et $N$ deux $A$-modules. Une application $f : M\to N$ est dite $A$-linéaire si c'est un morphisme de groupe abélien et qu'elle est compatible avec la loi externe, autrement dit $\forall a\in A, \forall m\in M, f(am)=af(m)$. 
+\end{definition}
+
+On dit juste morphisme au lieu de : application $A$-linéaire, etc.
+
+\begin{exemple}
+Le morphisme nul.
+\end{exemple}
+
+\begin{exo}
+Une application $f : M\to N$ est $A$-linéaire ssi :
+\[ \forall a, b \in A, \forall m, n \in M, f(am+bn)=af(m)+bf(n).\]
+\end{exo}
+
+On montre par récurrence que $f(\sum a_ix_i) = \sum a_if(x_i)$.
+
+\begin{definition}
+On note $\Hom_A(M,N)$ l'ensemble des morphismes de $M$ dans $N$. Un morphisme de $M$ dans lui-même est un endomorphisme. On note $\End_A(M)$ l'ensemble des endomorphismes de $M$.
+\end{definition}
+
+
+
+\begin{proposition} La composée de deux applications $A$-linéaires est $A$-linéaire.
+\end{proposition}
+
+\begin{definition}
+Un diagramme de modules est la donnée de modules $M_i$ et de morphismes $f_{ij} : M_i \to M_j$. On dit que le diagramme commute si $\forall i, j$, tous les morphismes de $M_i$ vers $M_j$ obtenus en composant des morphismes du diagramme sont égaux.
+\end{definition}
+
+Exemple : triangle commutatif, carré commutatif.
+
+\begin{definition}
+Un morphisme $f : M\to N$ est un isomorphisme s'il existe un morphisme $g : N\to M$ tel que $f\circ g = \Id_N$ et $g\circ f=\Id_M$.
+\end{definition}
+\begin{proposition}
+Un morphisme $f : M\to N$ est un isomorphisme si et seulement s'il est bijectif.
+\end{proposition}
+\begin{proof} La preuve est la même que pour les espaces vectoriels. Un isomorphisme est forcément bijectif vu la définition. Montrons que si un morphisme est bijectif, son application réciproque $g$ est $A$-linéaire. Soient $n$ et $n'$ des éléments de $M$, et $m$, $m'$ les antécédents par $f$, c'est-à-dire $n=g(m)$ et $m'=g(n')$. Alors, pour $a, b \in A$ on a :
+\begin{align*}
+g(an+bn') &= g(af(m)+bf(m'))\\
+&= g(f(am+bm')) \quad \text{(car $f$ est linéaire)}\\
+&=am+bm'\\
+&=ag(n)+bg(n').
+\end{align*}
+\end{proof}
+
+
+\begin{exo}
+Soit $a\in A$, et $\phi_a : M\to M, m\mapsto am$ l'homothétie de rapport $a$. C'est un morphisme de groupe abélien. Déterminer des conditions pour que $\phi$ soit : un endomorphisme; un automorphisme. % a \in Z(A), puis a inversible
+\end{exo}
+
+\begin{remarque}[Morphismes de $A$ dans un $A$-module]
+Un morphisme de $A$ dans $M$ est déterminé par l'image de $1_A$. Autrement dit, l'application
+\[
+\Hom_A(A,M) \to M,\]
+\[f\mapsto f(1_A)
+\]
+est une bijection.
+\end{remarque}
+
+\subsection{Sous-objets et quotients}
+
+
+
+\begin{definition}
+Soit $M$ un module. Un sous-module est un sous-groupe $N \subset M$ qui est stable par la loi externe : $\forall a\in A, \forall n\in N, an\in N$.
+\end{definition}
+
+
+
+\begin{exemple}
+Le module nul et $A$ sont des sous-modules de $A$.
+
+Les sous-modules d'un $\Z$-module sont ses sous-groupes.
+
+Les sous-modules du $A$-module à gauche $A$ sont les idéaux à gauche de $A$.
+
+Les sous-modules de $\Z$ sont les $n\Z$.
+
+Si $A$ est un corps, les sous-modules sont les sous-espaces vectoriels.
+
+Si $M$ est un $A$-module à gauche et $I$ est un idéal à gauche de $A$, alors $IM$ est un sous-module de $M$.
+\end{exemple}
+
+\begin{exemple}
+Les sous-modules de $(V,f)$ de l'exemple fondamental sont les sous-$k$-ev de $V$ stables par le $k$-endomorphisme $f$.
+\end{exemple}
+
+\begin{exemple}
+Les sous-modules d'une représentation d'un groupe sont les sous-représentations : les sous-ev stables sous l'action du groupe.
+\end{exemple}
+
+\begin{proposition}
+Les images directes et réciproques de sous-modules par des morphismes sont des sous-modules.
+\end{proposition}
+
+
+\begin{propdef}[Quotients]
+Soit $N$ un sous-module de $M$. 
+\begin{enumerate}
+\item Il existe un module $Q$ et un morphisme $\pi = M \to Q$ vérifiant la propriété (dite universelle) suivante (on dit aussi : \og solution du problème universel suivant\fg) :\\
+Pour tout module $P$ et tout morphisme $\phi : M \to P$ tel que $\phi(N)={0}$ (autrement dit $N \subset \Ker \phi$), il existe un unique morphisme $\bar \phi = Q \to P$ tel que $\phi  = \bar \phi \circ \pi$.
+\item Un tel couple $(Q,\pi)$ est unique à unique isomorphisme près, c'est-à-dire que si $(Q', \pi' :M \to Q')$ est une autre solution du problème universel, alors il existe un unique isomorphisme $\psi : Q\to Q'$ tel que $\pi'=\psi\circ\pi$.
+\end{enumerate}
+\end{propdef}
+\begin{proof} Unicité. Puis, existence : le groupe abélien quotient $M/N$ a structure de $A$-module telle que la projection canonique soit $A$-linéaire. Le quotient muni de cette structure répond au problème.
+\end{proof}
+
+L'image d'un élément $x \in M$ dans le quotient est notée $x+N$. Les règles de calcul sont celles qui sont naturelles, ce qui est une traduction du fait que la projection canonique soit un morphisme de modules.
+
+On a une correspondance entre sous-modules de $M/N$ et sous-modules de $M$ contenant $N$, via la projection canonique.
+
+%- - - - - - - - - - - - - - - - -
+\section{Propriétés générales, alias \og $A-Mod$ est une catégorie abélienne \fg}
+\subsection{Additivité}
+
+\begin{proposition}
+L'ensemble $\Hom_A(M,N)$ est un groupe abélien pour la loi d'addition naturelle. (L'élément neutre est le morphisme nul.)
+\end{proposition}
+
+\subsection{Produits et coproduits}
+
+
+\begin{propdef}
+Soit $(E_i)_{i \in I}$ une famille de modules.
+\begin{enumerate}
+\item Il existe un module $P$ muni d'applications $p_k : P \to E_k$, vérifiant la propriété suivante (dite propriété universelle du produit):\\
+Pour tout module $M$ muni d'applications $f_k : P \to E_k$, il existe un unique morphisme $\phi M \to P$ tel que $\forall k,\: p_k\circ \phi =f_k$.
+\item Une solution de ce problème universel est unique à unique isomorphisme près
+\end{enumerate}
+Un tel module $P$ est appelé module produit et noté $\prod_{i \in I} E_i$. Les applications $p_k : \prod E_l \to E_k$ sont les projections canoniques.
+\end{propdef}
+\begin{proof}
+Unicité:$\qed$\\
+Existence :\\
+L'ensemble produit $\prod E_i$ est muni de la structure de $A$-module en définissant la somme et la multiplication externe composante par composante.  Il répond au problème.
+\end{proof}
+
+\begin{propdef}
+Soit $(E_i)_{i \in I}$ une famille de modules.
+\begin{enumerate}
+\item Il existe un module $S$ muni d'applications $i_k : E_k \to S$, vérifiant la propriété suivante (dite propriété universelle de la somme directe):\\
+Pour tout module $M$ muni d'applications $f_k : E_k \to M$, il existe un unique morphisme $\phi : S \to M$ tel que $\forall k, \: phi \circ i_k=f_k$.
+\item Une solution de ce problème universel est unique à unique isomorphisme près.
+\end{enumerate}
+Un tel module $P$ est appelé module somme directe, ou coproduit, et noté $\bigoplus_{i \in I} E_i$ ou $\coprod_{i \in I} E_i$. Les applications $i_k : \prod E_l \to E_k$ sont les inclusions canoniques.
+\end{propdef}
+
+
+
+\begin{proof}
+Unicité : $\qed$\\
+Existence : Le sous-ensemble de $\prod E_i$ des suites presque nulles est un sous-module de $\prod E_i$. Les applications $i_k: E_k\to \bigoplus E_l$ sont les inclusions canoniques.
+\end{proof}
+
+Remarque : dans les ouvrages de niveau M1/agreg ou inférieur, la notation $\bigoplus$ et l'appellation \og somme directe\fg{} sont beaucoup plus employés que $\coprod$ et \og coproduit\fg. Sinon, certains auteurs emploient les deux indifféremment, et d'autres distinguent les deux et réservent la notation $\bigoplus$ et le nom de somme directe au cas d'une somme directe \emph{interne} , voir plus loin.
+
+
+
+\begin{proposition}
+Les propriétés universelles du produit et de la somme peuvent s'écrire sou la forme suivante:
+\[ \Hom_A(M,\prod E_i) = \prod \Hom_A(M, E_i),\]
+\[ \Hom_A(\bigoplus E_i,M) = \prod \Hom_A(E_i,M).\]
+\end{proposition}
+
+\begin{exo}
+Dans la proposition plus haut, préciser le sens des égalités (bijections ? isomorphismes ? de groupes ? modules ?). Ensuite, démontrer la proposition.
+\end{exo}
+
+Notation : si tous les modules sont identiques, notations $E^I$ et $E^{(I)}$. En particulier, on a les modules $A^I$ et $A^{(I)}$.
+
+
+\subsection{Noyaux, Images, conoyaux, coimages}
+
+
+\begin{proposition} Les noyaux et images de morphismes sont des $A$-modules. Les conoyaux et coimages aussi.
+\end{proposition}
+
+\begin{proposition}
+Injectif ssi noyau nul, surjectif ssi $Im(f)=N$.
+\end{proposition}
+
+\begin{proposition}Propriété universelle de ces objets.
+\end{proposition}
+
+Remarque : dans la mesure du possible, privilégier l'utilisation des propriétés universelles aux définitions ensemblistes, pour s'entraîner à les manipuler.
+
+\begin{theoreme}
+Monomorphisme ssi injectif; épimorphisme ssi surjectif.
+\end{theoreme}
+
+\begin{theoreme}[Premier théorème d'isomorphisme] Soit $f : M\to N$ un morphisme. Alors $f$ passe au quotient par $\Ker(f)$ et induit un isomorphisme 
+\[\Coim(f) \xrightarrow{\sim} \Im(f).\]
+\end{theoreme}
+
+\begin{theoreme}[Décomposition canonique d'un morphisme]
+Tout morphisme $f:M\to N$ s'écrit  comme composée d'un épimorphisme puis d'un monomorphisme.
+\end{theoreme}
+\begin{proof}
+\'Ecrire 
+\[
+\xymatrix{
+M \ar@{->>}[r] & \Coim(f) \ar[r]^{\sim} & \Im(f) \ar@{^{(}->}[r] & N \\
+}
+\]
+\end{proof}
+
+
+
+% - - - - - - - - - - - - - - - - - - - - -
+\section{Suites exactes, chasse au diagramme}
+
+\begin{definition}
+Suites exactes. Morphisme de suites exactes. Isomorphisme de suites exactes.
+\end{definition}
+
+
+\begin{propdef}
+Soit $0 \to N \to M \to Q \to 0$ une suite exacte courte de modules. Alors les cinq conditions suivantes sont équivalentes:
+\begin{enumerate}
+\item isomorphe à une somme directe;
+\item scindée à gauche;
+\item scindée à droite;
+\item la suite induite $0 \to \Hom(P,N) \to \Hom(P,M) \to \Hom(P,Q) \to 0$ est exacte pour tout $A$-module $P$;
+\item  la suite induite $0 \to \Hom(Q,P) \to \Hom(M,P) \to \Hom(N,P) \to 0$ est exacte pour tout $A$-module $P$.
+\end{enumerate}
+Lorsqu'elles sont vérifiées, on dit que la suite exacte courte est \emph{scindée}.
+\end{propdef}
+
+\begin{remarque}
+Attention, la situation est très différente en théorie des groupes (non abéliens): dans une suite exacte de groupes non abéliens, un scindage à droite ne suffit pas à avoir un produit direct. La raison est essentiellement que l'image de la section est un groupe qui n'est pas forcément distingué.
+\end{remarque}
+
+\begin{proposition}
+Lemme des cinq.
+\end{proposition}
+
+
+\begin{exo}
+Lemme du serpent.
+\end{exo}
+
+
+\begin{exo}
+Lemme \og $3\times 3$ \fg.
+\end{exo}
+% - - - - - - - - - - - - - - - - - - - - -
+\section{Opérations sur les sous-modules}
+
+\subsection{Sous-modules engendrés}
+\begin{proposition}
+L'intersection de sous-modules est un sous-module.
+\end{proposition}
+
+\begin{definition} Sous-module engendré par une partie, par une famille. Notation $\langle X\rangle$.
+\end{definition}
+
+
+
+\begin{theoreme} Le module engendré par une famille est l'ensemble des combinaisons linéaires d'éléments de cette famille.
+\end{theoreme}
+
+\begin{definition} Module monogène. Notation $A.x$. Morphisme canonique associé à $x$:  $f : A \to M, \: 1_A \to x$, dont l'image est le sous-module $Ax$ de $M$.
+\end{definition}
+
+Si $I$ est le noyau de ce morphisme, on en déduit que le module $Ax$ est isomorphe à $A/I$.
+
+% on dit que $x$ est de torsion si le morphisme est injectif ? Mettre condition d'intégrité ?
+
+\begin{definition}
+Somme de sous-modules : $\sum E_i = \langle \cup E_i \rangle$.
+\end{definition}
+
+Pour tout $i \in I$, on a le morphisme d'injection canonique $j_i : M_i \to M$. Par propriété universelle de la somme directe, on en déduit un morphisme canonique $f : \bigoplus E_i \to M$. L'image de ce morphisme est $\sum E_i$. C'est l'ensemble des combinaisons linéaires d'éléments des $E_i$.
+
+
+\begin{notation} Si $M$ et $N$ sont des sous-modules, on note $M+N$ leur somme.\end{notation}
+
+\subsection{Deuxième théorème d'isomorphisme}
+
+\begin{theoreme}
+\[
+\frac{M}{M\cap N} \simeq \frac{M+N}{N}.
+\]
+\end{theoreme}
+
+\subsection{Sous-modules en somme directe et projecteurs}
+
+\begin{propdef} Soit $M$ un module et $N$, $N'$ deux sous-modules. Les conditions suivantes sont équivalentes:
+\begin{enumerate}
+\item le morphisme canonique $N \coprod N' \to M$ est injectif et induit un isomorphisme $N\coprod N' \simeq N+N'$;
+\item Tout élément de $N\cap N'$ admet une unique écriture de la forme $n+n'$ avec $n\in N$ et $n'\in N'$;
+\item $N\cap N' = \{0\}$.
+\end{enumerate}
+Dans ce cas, on dit que les deux sous-modules \emph{sont en somme directe} (ou \emph{somme directe interne}), et on préfère écrire $N\oplus N'$ plutôt que $N+N'$.
+\end{propdef}
+
+\begin{definition} Somme directe interne d'une famille de sous-modules.
+\end{definition}
+
+
+\begin{definition} Projecteur\end{definition}
+
+Propriétés
+
+\begin{definition} Famille orthogonale de projecteurs\end{definition}
+
+\begin{theoreme} Si $E$ est somme directe finie de sous-modules, alors on a une famille finie orthogonale de projeteurs dont la somme est l'identité.\end{theoreme}
+\subsection{Supplémentaires}
+
+\begin{definition} Sommes directes à deux termes : on dit que les deux sous-modules sont supplémentaires.\end{definition} 
+
+$0$ et $A$ sont supplémentaires dans le $A$-module $A$.
+
+Correspondance entre couples de sous-modules supplémentaires et projecteurs. Correspondance entre les supplémentaires d'un sous-module fixé et les projecteurs d'image ce sous-module.
+
+Tout supplémentaire de $N$ dans $M$ est canoniquement isomorphe à $M/N$; Exemple  : $2\Z \subset \Z$ n'a pas de supplémentaire.
